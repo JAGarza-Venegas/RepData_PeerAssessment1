@@ -306,6 +306,8 @@ newdf <- mutate(newdf, daytype = factor(dayfactor, labels = c("weekday", "weeken
 
 Now, we make a plot with two panels to show the time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days.
 
+To that end, we can group the data set for each `daytype` weekdays and for weekenddays and bind rows after that.
+
 
 ```r
 newIntervals <- group_by(newdf, interval)
@@ -360,7 +362,5 @@ xyplot(AvgSteps ~ interval | daytype, data = newIntervals, layout = c(1,2), type
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
-
-
 
 

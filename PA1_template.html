@@ -568,6 +568,8 @@ newdf &lt;- mutate(newdf, daytype = factor(dayfactor, labels = c(&quot;weekday&q
 <p>Now, we make a plot with two panels to show the time series plot of
 the 5-minute interval and the average number of steps taken, averaged
 across all weekday days or weekend days.</p>
+<p>To that end, we can group the data set for each <code>daytype</code>
+weekdays and for weekenddays and bind rows after that.</p>
 <pre class="r"><code>newIntervals &lt;- group_by(newdf, interval)
 newIntervals_weekdays &lt;- summarize(newIntervals, AvgSteps = mean(steps[daytype == &quot;weekday&quot;], na.rm = TRUE), daytype = &quot;weekday&quot;)
 newIntervals_weekdays</code></pre>
